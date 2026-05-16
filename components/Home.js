@@ -11,7 +11,6 @@ const HERO_STARS = Array.from({ length: 52 }, (_, i) => ({
   size: i % 4 === 0 ? 2.5 : i % 3 === 0 ? 2 : 1.5,
 }));
 
-// 🎨 WORKSセクションのイラストデータ（あなたの実際のファイル名に合わせました！）
 const ILLUSTRATIONS = [
   {
     id: 1,
@@ -198,9 +197,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WORKS セクション */}
+      {/* WORKS セクション（縦並び＆比率維持に大改造！） */}
       <section id="works" className="relative z-10 scroll-mt-16 bg-transparent px-6 py-16 sm:px-10 sm:py-24">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-3xl">
           <h2 className="text-center text-sm font-semibold uppercase tracking-[0.35em] text-slate-900 drop-shadow-[0_1px_0_rgba(255,255,255,0.65)]">
             Works
           </h2>
@@ -208,32 +207,32 @@ export default function Home() {
             イラストをいくつか紹介します。楽曲は再生ボタンからどうぞ。
           </p>
 
-          <div className="mt-14 grid gap-10 sm:grid-cols-3">
+          {/* 横3列並びから、中央揃えの縦1列（フレックス縦並び）に変更 */}
+          <div className="mt-14 flex flex-col items-center gap-16">
             {ILLUSTRATIONS.map((item) => (
-              <div key={item.id} className="flex flex-col items-center">
+              <div key={item.id} className="w-full max-w-xl flex flex-col items-center">
                 <button
                   type="button"
                   onClick={() => triggerIllustrationShake(item.id)}
-                  className={`group w-full overflow-hidden rounded-xl border border-slate-900/25 bg-white/10 backdrop-blur-sm outline-none ring-sky-700/25 transition hover:border-slate-900/40 focus-visible:ring-2 ${shakingId === item.id ? "animate-illustration-shake" : ""}`}
+                  className={`group w-full overflow-hidden rounded-2xl border border-slate-900/25 bg-white/10 backdrop-blur-sm p-2 outline-none ring-sky-700/25 transition hover:border-slate-900/40 focus-visible:ring-2 ${shakingId === item.id ? "animate-illustration-shake" : ""}`}
                   aria-label={`${item.title}（クリックでひと揺れ）`}
                 >
+                  {/* aspect-squareを消去し、h-auto（自動高さ）にすることで元の比率を維持 */}
                   <img
                     src={item.thumbSrc}
                     alt={item.alt}
-                    width={400}
-                    height={400}
-                    className="aspect-square w-full object-cover transition duration-300 group-hover:brightness-105"
+                    className="w-full h-auto rounded-xl object-contain transition duration-300 group-hover:brightness-105"
                     draggable={false}
                   />
                 </button>
-                <p className="mt-3 text-center text-xs font-semibold text-slate-900 drop-shadow-[0_1px_1px_rgba(255,255,255,0.6)]">
+                <p className="mt-4 text-center text-xs font-semibold text-slate-900 drop-shadow-[0_1px_1px_rgba(255,255,255,0.6)]">
                   {item.title}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="mx-auto mt-16 max-w-md rounded-2xl border border-slate-900/25 bg-white/5 backdrop-blur-sm p-8 text-center shadow-[0_8px_32px_-16px_rgba(15,23,42,0.25)]">
+          <div className="mx-auto mt-20 max-w-md rounded-2xl border border-slate-900/25 bg-white/5 backdrop-blur-sm p-8 text-center shadow-[0_8px_32px_-16px_rgba(15,23,42,0.25)]">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-900 drop-shadow-[0_1px_0_rgba(255,255,255,0.6)]">
               Audio
             </p>
@@ -252,27 +251,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SNS セクション */}
+      {/* SNS セクション（アイコンをモダンな内製デザインに変更） */}
       <section id="sns" className="relative z-10 scroll-mt-16 bg-transparent px-6 py-16 sm:px-10 sm:py-24">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-sm font-medium uppercase tracking-[0.35em] text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
             SNS
           </h2>
           <div className="mt-12 flex flex-col items-stretch gap-8 sm:flex-row sm:justify-center sm:gap-12">
-            <a href="https://x.com/cranedogu/" target="_blank" rel="noopener noreferrer" className="flex flex-1 flex-col items-center gap-4 rounded-2xl border border-white/35 bg-white/5 backdrop-blur-sm px-8 py-8 transition hover:border-white/55 sm:max-w-xs">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full border border-dashed border-white/45 bg-transparent text-[10px] text-sky-100/90">X icon</div>
+            
+            {/* X (Twitter) カード */}
+            <a href="https://x.com/cranedogu/" target="_blank" rel="noopener noreferrer" className="flex flex-1 flex-col items-center gap-4 rounded-2xl border border-white/35 bg-white/5 backdrop-blur-sm px-8 py-8 transition hover:border-white/55 sm:max-w-xs group">
+              {/* シャープで洗練されたXのシンボルアイコン */}
+              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white font-bold text-xl tracking-tighter transition group-hover:scale-105 group-hover:bg-white/20">
+                𝕏
+              </div>
               <div>
                 <p className="text-xs uppercase tracking-widest text-sky-100">X (Twitter)</p>
                 <p className="mt-2 font-mono text-sm text-white drop-shadow-sm">@cranedogu</p>
               </div>
             </a>
-            <a href="https://www.pixiv.net/users/18205740" target="_blank" rel="noopener noreferrer" className="flex flex-1 flex-col items-center gap-4 rounded-2xl border border-white/35 bg-white/5 backdrop-blur-sm px-8 py-8 transition hover:border-white/55 sm:max-w-xs">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full border border-dashed border-white/45 bg-transparent text-[10px] text-sky-100/90">Pixiv icon</div>
+
+            {/* Pixiv カード */}
+            <a href="https://www.pixiv.net/users/18205740" target="_blank" rel="noopener noreferrer" className="flex flex-1 flex-col items-center gap-4 rounded-2xl border border-white/35 bg-white/5 backdrop-blur-sm px-8 py-8 transition hover:border-white/55 sm:max-w-xs group">
+              {/* 青いグラデーション夜空に映える、モダンでやわらかいP風のアイコン */}
+              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-sky-500/20 text-sky-300 font-black text-2xl tracking-tight transition group-hover:scale-105 group-hover:bg-sky-500/30">
+                [p]
+              </div>
               <div>
                 <p className="text-xs uppercase tracking-widest text-sky-100">Pixiv</p>
-                <p className="mt-2 font-mono text-sm text-white drop-shadow-sm">@turu dogu</p>
+                <p className="mt-2 font-mono text-sm text-white drop-shadow-sm">turu dogu</p>
               </div>
             </a>
+
           </div>
         </div>
       </section>
