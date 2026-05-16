@@ -190,10 +190,10 @@ export default function Home() {
             About Me
           </h2>
           <p className="mt-8 text-sm leading-[2] text-white/95 drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)] sm:text-base">
-            Turu Dogu（鶴土偶）は、イラストレーションと音を軸に、夜明け前の空気と余韻をテーマに制作しています。線の揺らぎや色彩の温度に寄り添い、作品ごとに異なる「息づかい」を探しています。
+            絵や文章や曲を作ります。もっと色々やりたいです。
           </p>
           <p className="mt-6 text-sm leading-[2] text-white/95 drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)] sm:text-base">
-            このページは作品集の器としてゆっくり育てていく予定です。静かな朝のグラデーションのように、落ち着いたトーンで更新していきます。
+            作品は主にX（旧Twitter）とPixivで発表しています。
           </p>
         </div>
       </section>
@@ -205,7 +205,7 @@ export default function Home() {
             Works
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-center text-sm font-medium text-slate-900/90 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
-            イラストはクリックで一瞬だけ揺れます。楽曲は再生ボタンからポップアップを開けます。
+            イラストをいくつか紹介します。楽曲は再生ボタンからどうぞ。
           </p>
 
           <div className="mt-14 grid gap-10 sm:grid-cols-3">
