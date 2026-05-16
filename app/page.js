@@ -30,11 +30,9 @@ export default function Page() {
   ];
 
   return (
-    <div className="relative min-h-screen text-slate-100 selection:bg-sky-500/30">
-      
+    <div className="relative min-h-screen text-slate-100 selection:bg-sky-500/30 bg-gradient-to-b from-[#020617] via-[#0f172a] to-[#1e1b4b] overflow-x-hidden">      
       {/* 演出用の背景ベール（globals.cssの夜明けアニメーションと連動） */}
-      <div className="opening-night-veil fixed inset-0 z-0" />
-
+      <div className="opening-night-veil fixed inset-0 z-0 opening-stars-dim" />
       {/* メインコンテンツ */}
       <div className="relative z-10 mx-auto max-w-5xl px-6 py-12">
         
