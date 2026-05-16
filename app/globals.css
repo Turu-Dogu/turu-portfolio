@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0284c7;
+  --foreground: #f8fafc;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ========== オープニング：夜から朝焼けへ（ベール） ========== */
+@keyframes night-to-dawn-veil {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.opening-night-veil {
+  animation: night-to-dawn-veil 6.2s ease-in-out forwards;
+  pointer-events: none;
+  background: linear-gradient(
+    168deg,
+    #020617 0%,
+    #0f172a 28%,
+    #1e1b4b 55%,
+    #312e81 82%,
+    #4c1d95 100%
+  );
+}
+
+/* ========== 星：夜明けで控えめに ========== */
+@keyframes stars-dawn-dim {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.14;
+  }
+}
+
+.opening-stars-dim {
+  animation: stars-dawn-dim 6.2s ease-out forwards;
+}
+
+/* ========== 満月：左→右上へ移動後、淡く脈動 ========== */
+@keyframes moon-drift {
+  0% {
+    left: -6%;
+    top: 58%;
+    transform: scale(0.78);
+  }
+  100% {
+    left: 81%;
+    top: 11%;
+    transform: scale(1);
+  }
+}
+
+@keyframes moon-soft-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 28px rgba(255, 255, 255, 0.45),
+      0 0 56px rgba(186, 230, 253, 0.35);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow:
+      0 0 42px rgba(255, 255, 255, 0.65),
+      0 0 80px rgba(147, 197, 253, 0.45);
+    filter: brightness(1.05);
+  }
+}
+
+.opening-full-moon {
+  width: clamp(3.25rem, 8vw, 4.75rem);
+  height: clamp(3.25rem, 8vw, 4.75rem);
+  border-radius: 9999px;
+  position: absolute;
+  background: radial-gradient(
+    circle at 32% 30%,
+    #ffffff 0%,
+    #f1f5f9 42%,
+    #cbd5e1 100%
+  );
+  animation:
+    moon-drift 5.6s cubic-bezier(0.37, 0.02, 0.21, 1) forwards,
+    moon-soft-pulse 3.8s ease-in-out infinite 5.6s;
+}
+
+/* ========== Hero 文字：浮き上がりフェードイン ========== */
+@keyframes hero-text-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.opening-hero-line {
+  opacity: 0;
+  animation: hero-text-rise 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.opening-hero-line--1 {
+  animation-delay: 4.85s;
+}
+.opening-hero-line--2 {
+  animation-delay: 5.15s;
+}
+.opening-hero-line--3 {
+  animation-delay: 5.35s;
+}
+.opening-hero-line--4 {
+  animation-delay: 5.55s;
+}
+
+/* ========== 星の瞬き（ループ） ========== */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  70% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+}
+
+.animate-twinkle {
+  animation: twinkle var(--twinkle-duration, 2.8s) ease-in-out infinite;
+  animation-delay: var(--twinkle-delay, 0s);
+  will-change: opacity, transform;
+}
+
+/* ========== イラスト：クリック時のシェイク ========== */
+@keyframes illustration-shake {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  18% {
+    transform: translate(-3px, 2px) rotate(-1.1deg);
+  }
+  36% {
+    transform: translate(4px, -2px) rotate(1deg);
+  }
+  54% {
+    transform: translate(-3px, -1px) rotate(-0.8deg);
+  }
+  72% {
+    transform: translate(2px, 2px) rotate(0.6deg);
+  }
+  90% {
+    transform: translate(-1px, 0) rotate(-0.2deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+.animate-illustration-shake {
+  animation: illustration-shake 0.45s ease-in-out;
+}
+
+/* ========== 音波バー ========== */
+@keyframes wave {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.animate-wave-bar {
+  animation: wave 0.85s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+/* ========== 下部：細い雲（右→左へながれる） ========== */
+@keyframes cloud-drift {
+  0% {
+    transform: translateX(110vw);
+  }
+  100% {
+    transform: translateX(-130vw);
+  }
+}
+
+.wispy-cloud {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  will-change: transform;
+  animation-name: cloud-drift;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* 旧三日月用 */
+@keyframes moon-glow-legacy {
+  0%,
+  100% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 14px rgba(125, 211, 252, 0.35));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 26px rgba(125, 211, 252, 0.65));
+  }
+}
+
+.animate-moon-glow {
+  animation: moon-glow-legacy 5s ease-in-out infinite;
+}
