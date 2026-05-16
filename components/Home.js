@@ -259,18 +259,18 @@ export default function Home() {
             SNS
           </h2>
           <div className="mt-12 flex flex-col items-stretch gap-8 sm:flex-row sm:justify-center sm:gap-12">
-            <a href="https://x.com/" target="_blank" rel="noopener noreferrer" className="flex flex-1 flex-col items-center gap-4 rounded-2xl border border-white/35 bg-white/5 backdrop-blur-sm px-8 py-8 transition hover:border-white/55 sm:max-w-xs">
+            <a href="https://x.com/cranedogu/" target="_blank" rel="noopener noreferrer" className="flex flex-1 flex-col items-center gap-4 rounded-2xl border border-white/35 bg-white/5 backdrop-blur-sm px-8 py-8 transition hover:border-white/55 sm:max-w-xs">
               <div className="flex h-16 w-16 items-center justify-center rounded-full border border-dashed border-white/45 bg-transparent text-[10px] text-sky-100/90">X icon</div>
               <div>
                 <p className="text-xs uppercase tracking-widest text-sky-100">X (Twitter)</p>
-                <p className="mt-2 font-mono text-sm text-white drop-shadow-sm">@your_username</p>
+                <p className="mt-2 font-mono text-sm text-white drop-shadow-sm">@cranedogu</p>
               </div>
             </a>
-            <a href="https://www.pixiv.net/" target="_blank" rel="noopener noreferrer" className="flex flex-1 flex-col items-center gap-4 rounded-2xl border border-white/35 bg-white/5 backdrop-blur-sm px-8 py-8 transition hover:border-white/55 sm:max-w-xs">
+            <a href="https://www.pixiv.net/users/18205740" target="_blank" rel="noopener noreferrer" className="flex flex-1 flex-col items-center gap-4 rounded-2xl border border-white/35 bg-white/5 backdrop-blur-sm px-8 py-8 transition hover:border-white/55 sm:max-w-xs">
               <div className="flex h-16 w-16 items-center justify-center rounded-full border border-dashed border-white/45 bg-transparent text-[10px] text-sky-100/90">Pixiv icon</div>
               <div>
                 <p className="text-xs uppercase tracking-widest text-sky-100">Pixiv</p>
-                <p className="mt-2 font-mono text-sm text-white drop-shadow-sm">@your_pixiv_id</p>
+                <p className="mt-2 font-mono text-sm text-white drop-shadow-sm">@turu dogu</p>
               </div>
             </a>
           </div>
